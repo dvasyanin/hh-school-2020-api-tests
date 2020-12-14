@@ -1,0 +1,741 @@
+{
+	"info": {
+		"_postman_id": "64935bca-e77e-4f89-b497-2c4f171f886b",
+		"name": "tests_hh_vacancies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Empty string",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e503169-2ced-44c5-a970-0168b23c25d1",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.not.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=-----",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "-----"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "String 254 characters long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6cc1465-39a0-4cbc-b4f6-9f8a6b0c52cb",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=RPvYIzCr2C4BierpyheiLYbLHgplIa5OxCJFsPqef5p7uisjYc0N0rKarUkA6XnRt9syzEoicEsOoiqpSOzRsW5lfx5a8ezyriyU1f9YvI9aBHVeUsaFxWgp2x9L85S28ZJwfAQQgpamuK8IIHBKHXtxD14xJn5vafga0mBK4yyvlqbgZQ4gJfO7uEQYgzm9duFvACHYKnGQiCyRATFinzKCjHi736OkbLgaKTuOcVddtjb7snw2LYVWQ1csRd",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "RPvYIzCr2C4BierpyheiLYbLHgplIa5OxCJFsPqef5p7uisjYc0N0rKarUkA6XnRt9syzEoicEsOoiqpSOzRsW5lfx5a8ezyriyU1f9YvI9aBHVeUsaFxWgp2x9L85S28ZJwfAQQgpamuK8IIHBKHXtxD14xJn5vafga0mBK4yyvlqbgZQ4gJfO7uEQYgzm9duFvACHYKnGQiCyRATFinzKCjHi736OkbLgaKTuOcVddtjb7snw2LYVWQ1csRd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "String 255 characters long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "35571ca9-a2dd-4d61-a8f3-894f06798c2c",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=RPvYIzCr2C4BierpyheiLYbLHgplIa5OxCJFsPqef5p7uisjYc0N0rKarUkA6XnRt9syzEoicEsOoiqpSOzRsW5lfx5a8ezyriyU1f9YvI9aBHVeUsaFxWgp2x9L85S28ZJwfAQQgpamuK8IIHBKHXtxD14xJn5vafga0mBK4yyvlqbgZQ4gJfO7uEQYgzm9duFvACHYKnGQiCyRATFinzKCjHi736OkbLgaKTuOcVddtjb7snw2LYVWQ1csRd1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "RPvYIzCr2C4BierpyheiLYbLHgplIa5OxCJFsPqef5p7uisjYc0N0rKarUkA6XnRt9syzEoicEsOoiqpSOzRsW5lfx5a8ezyriyU1f9YvI9aBHVeUsaFxWgp2x9L85S28ZJwfAQQgpamuK8IIHBKHXtxD14xJn5vafga0mBK4yyvlqbgZQ4gJfO7uEQYgzm9duFvACHYKnGQiCyRATFinzKCjHi736OkbLgaKTuOcVddtjb7snw2LYVWQ1csRd1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "String 256 characters long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2383600-f0fe-4fdc-bb57-21c8b8f05856",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=RPvYIzCr2C4BierpyheiLYbLHgplIa5OxCJFsPqef5p7uisjYc0N0rKarUkA6XnRt9syzEoicEsOoiqpSOzRsW5lfx5a8ezyriyU1f9YvI9aBHVeUsaFxWgp2x9L85S28ZJwfAQQgpamuK8IIHBKHXtxD14xJn5vafga0mBK4yyvlqbgZQ4gJfO7uEQYgzm9duFvACHYKnGQiCyRATFinzKCjHi736OkbLgaKTuOcVddtjb7snw2LYVWQ1csRd11",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "RPvYIzCr2C4BierpyheiLYbLHgplIa5OxCJFsPqef5p7uisjYc0N0rKarUkA6XnRt9syzEoicEsOoiqpSOzRsW5lfx5a8ezyriyU1f9YvI9aBHVeUsaFxWgp2x9L85S28ZJwfAQQgpamuK8IIHBKHXtxD14xJn5vafga0mBK4yyvlqbgZQ4gJfO7uEQYgzm9duFvACHYKnGQiCyRATFinzKCjHi736OkbLgaKTuOcVddtjb7snw2LYVWQ1csRd11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vacanancy not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c43cd34c-6f2c-48f7-91ac-e96960477b7e",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=двойник Путина",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "двойник Путина"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SQL injection",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6efe9f5-188f-4843-a7c8-0ceec73d5e21",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=SELECT * FROM users WHERE username = 'administrator'--' AND password=''",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "SELECT * FROM users WHERE username = 'administrator'--' AND password=''"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Found vacancies EN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f2ef2a0d-da01-40c3-873b-3ede41d5f5ad",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.not.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=developer",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "developer"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Found vacancies RU",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c702ce4-8a04-4606-8bb3-caa32bff93a5",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.not.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=разработчик",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "разработчик"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unknown lingua",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "641a7f2d-5bd5-487c-9c22-eee94341b140",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=sviluppatore",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "sviluppatore"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Символы",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dad8d415-0b22-46db-b6ba-ae48ec22b0f3",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.not.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=( . )( . )",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "( . )( . )"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Числа",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7d0d2219-503a-4236-b3c4-79485665a224",
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check that it returns a json\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Check that it returns at array\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items).to.be.a(\"array\");",
+							"});",
+							"",
+							"pm.test(\"Items result is empty\", function() {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.items.length).to.not.equal(0);",
+							"})",
+							"",
+							"pm.test(\"Check response time\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer JOIN9M0LTBRLMF0S1JBLA2VUSFHAPSJF63PGT89P96D6HGNNHALD7QL2PSTKUD8P",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=12345",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3a592c20-ff10-493d-bfd2-d5b45008a0b2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "22da94b9-b356-406f-aaba-1bf63283cd0a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
